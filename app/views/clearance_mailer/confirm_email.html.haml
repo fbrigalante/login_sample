@@ -1,0 +1,4 @@
+%p= t(".opening")
+%p
+  = link_to t(".link_text", default: "Activate account!"),                   |
+    confirm_user_email_url(@user, token: @user.email_confirmation_token.html_safe) |

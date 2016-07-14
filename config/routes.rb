@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
+  get "/confirm_email/:token" => "users#confirm", as: "confirm_user_email"
   root 'root#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
