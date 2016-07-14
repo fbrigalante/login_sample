@@ -1,4 +1,4 @@
-class ClearanceMailer < ActionMailer::Base
+class ConfirmationMailer < ActionMailer::Base
   def confirm_email(user)
     @user = user
     mail(

@@ -8,5 +8,8 @@
       .password-field
         = form.label :password
         = form.password_field :password
+      .password-confirmation-field
+        = form.label :password_confirmation
+        = form.password_field :password_confirmation
       .submit-field
         = form.submit :class => "btn btn-primary"

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resources :passwords, controller: "passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create, :new]
 
   resources :users, controller: "users", only: [:create] do
     resource :password,
-      controller: "clearance/passwords",
+      controller: "passwords",
       only: [:create, :edit, :update]
   end
 

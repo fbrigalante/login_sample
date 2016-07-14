@@ -23,6 +23,7 @@ en:
     failure_when_not_signed_in: Please sign in to continue.
     confirm_your_email: Please confirm your email
     confirmed_email: Confirmed Email
+    wrong_password_confirmation: The passwords are different
   helpers:
     label:
       password:
