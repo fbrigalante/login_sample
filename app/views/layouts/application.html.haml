@@ -1,16 +1,37 @@
-!!!
+!!! 5
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    = javascript_include_tag 'application'
-    = csrf_meta_tag
+    %title Login Sample
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
   %body
-    #header
-      - if signed_in?
-        = button_to t(".sign_out"), sign_out_path, method: :delete
-      - else
-        = link_to t(".sign_in"), sign_in_path
-    #flash
-      - flash.each do |key, value|
-        %div{:id => "flash_#{key}"}= h value
-    = yield
+    %header
+      %nav.navbar.navbar-fixed-top.navbar-default
+        .container-fluid
+          %ul.nav.navbar-nav.navbar-right
+            - if signed_in?
+              %li= link_to t(".sign_out"), sign_out_path, method: :delete
+            - else
+              %li
+                =link_to sign_up_path do
+                  %span(class="glyphicon glyphicon-arrow-up")
+                  =t(".sign_up")
+              %li
+                = link_to sign_in_path do
+                  %span(class="glyphicon glyphicon-log-in")
+                  =t(".sign_in")
+    .container
+      .row
+        .col-md-6.col-md-offset-3
+          %br
+          - if flash[:notice]
+            #notice.message.alert.alert-info= flash[:notice]
+          - elsif flash[:warning]
+            #warning.has_error.message.alert.alert-danger
+              %ul.warning
+                - flash[:warning].each do |msg|
+                  %li= msg
+      .row
+        = yield
