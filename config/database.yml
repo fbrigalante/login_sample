@@ -21,5 +21,9 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: 8
+  database: login_sample_production
+  username: pguser
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD']
