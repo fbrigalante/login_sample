@@ -7,7 +7,7 @@ class SessionsController < Clearance::SessionsController
         redirect_back_or url_after_create
       else
         flash.notice = status.failure_message
-        render 'new'
+        redirect_to sign_in_path
       end
     end
   end

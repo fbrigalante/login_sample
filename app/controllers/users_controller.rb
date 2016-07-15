@@ -12,7 +12,7 @@ class UsersController < Clearance::UsersController
       redirect_back_or url_after_create
     else
       flash[:warning] = @user.errors.full_messages
-      render 'new'
+      redirect_to sign_up_path
     end
   end
 
